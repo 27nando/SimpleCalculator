@@ -33,6 +33,11 @@
     margin: 5px;
 }
 
+.calculator form input:active {
+    background: #e7d7c1;
+    color: #bf4342;
+}
+
 form .display{
     display: flex;
     justify-content: flex-end;
@@ -41,12 +46,13 @@ form .display{
 
 form .display input{
     text-align: right;
+    padding: 10px; 
     flex: 1;
+    height: 70px;
     font-size: 45px;
     color: #735751;
     border-radius: 20px;
     background: #e7d7c1;
-
 }
 
 form input.zero {
@@ -57,7 +63,16 @@ form input.zero {
 form input.first {
     background: #a78a7f;
 }
+form input.first:active {
+    background: #e7d7c1;
+    color: #a78a7f;
+}
 
 form input.op {
     background: #8c1c13;
+}
+
+form input.op:active {
+    background:#e7d7c1;
+    color: #8c1c13;
 }
