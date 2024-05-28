@@ -3,8 +3,7 @@ a simple calculator created using css and html.
 
 ## Table of Contents
 - [Installation and Usage](#installation_and_usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Features](#features)
 
 ## Installation and Usage
 1. Clone the repository to VSCode
