@@ -2,8 +2,7 @@
 a simple calculator created using css and html.
 
 ## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
+- [Installation and Usage](#installation_and_usage)
 - [Contributing](#contributing)
 - [License](#license)
 
