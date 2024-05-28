@@ -53,3 +53,11 @@ form input.zero {
     width: 135px;
     border-radius: 50px;
 }
+
+form input.first {
+    background: #a78a7f;
+}
+
+form input.op {
+    background: #8c1c13;
+}
