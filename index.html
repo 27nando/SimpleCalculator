@@ -47,72 +47,56 @@
     
     <script>
         let currentInput = '';
-        let currentOperation = '';
-        let savedNumber = '';
+        let savedInput = '';
     
         function clearDisplay() {
             document.getElementById('display').value = '';
             currentInput = '';
-            currentOperation = '';
-            savedNumber = '';
+            savedInput = '';
         }
     
         function deleteLastCharacter() {
             var display = document.getElementById('display');
             display.value = display.value.slice(0, -1);
-            currentInput = currentInput.slice(0, -1);
+            currentInput += currentInput.slice(0, -1);
+            savedInput += savedInput.slice(0, -1);
         }
     
         function percentage() {
             var display = document.getElementById('display');
             display.value = parseFloat(display.value) / 100;
-            currentInput = parseFloat(display.value);
+            currentInput += parseFloat(display.value);
+            savedInput += parseFloat(display.value);
         }
     
         function appendOperator(operator) {
             if (currentInput !== '') {
-                currentOperation = operator;
-                savedNumber = currentInput;
-                currentInput = '';
-            }
+            savedInput += operator;
+            currentInput = '';
+        }
         }
     
         function appendNumber(number) {
             currentInput += number;
+            savedInput += number;
             document.getElementById('display').value = currentInput;
         }
     
         function appendDecimal() {
-            if (currentInput.indexOf('.') === -1) {
-                currentInput += '.';
-                document.getElementById('display').value = currentInput;
-            }
+            currentInput += '.';
+            document.getElementById('display').value = currentInput;
         }
     
         function calculate() {
-            if (currentInput !== '') {
-                let result;
-                switch (currentOperation) {
-                    case '+':
-                        result = parseFloat(savedNumber) + parseFloat(currentInput);
-                        break;
-                    case '-':
-                        result = parseFloat(savedNumber) - parseFloat(currentInput);
-                        break;
-                    case '*':
-                        result = parseFloat(savedNumber) * parseFloat(currentInput);
-                        break;
-                    case '/':
-                        result = parseFloat(savedNumber) / parseFloat(currentInput);
-                        break;
-                    default:
-                        result = currentInput;
-                }
-                document.getElementById('display').value = result;
-                currentInput = result.toString();
-                currentOperation = '';
-                savedNumber = '';
-            }
+            var result;
+            try {
+            result = eval(savedInput);
+            document.getElementById('display').value = result;
+            currentInput = result.toString();
+        } catch (error) {
+            document.getElementById('display').value = 'Error';
+            savedInput = '';
+        }
         }
     </script>
 </body>
